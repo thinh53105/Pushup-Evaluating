@@ -1,10 +1,10 @@
 import cv2
-from utils import PoseModule as pm
+from src.keypoint_detector import PoseModule as pm
 import time
 import matplotlib.pyplot as plt
 
 samples_path = "sample_videos"
-video = "test10.mp4"
+video = "test9.mp4"
 cap = cv2.VideoCapture(samples_path + "/" + video)
 
 detector = pm.PoseDetector()

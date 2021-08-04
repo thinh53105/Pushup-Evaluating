@@ -6,8 +6,8 @@ import tkinter
 from tkinter.filedialog import askopenfilename
 import keras
 import matplotlib.pyplot as plt
-import utils.PoseModule as pm
-from utils.frontend_utils import Button, Label
+import src.keypoint_detector.PoseModule as pm
+from src.utils.utils import Button, Label
 
 root = tkinter.Tk()
 root.withdraw()
@@ -292,7 +292,6 @@ cv2.setMouseCallback("Push-up Recognition", mouse_click)
 
 while not quitt:
     bg[lb_y:, ] = np.ones((WINDOW_HEIGHT-lb_y, WINDOW_WIDTH, 3), dtype="uint8")*111
-    print(bg.shape)
 
     for util in utils:
         bg = util.place(bg)
