@@ -1,9 +1,11 @@
 import cv2
 from src.utils.ui_drawer import UIDrawer
 from src.utils.video_streamer import VideoStreamer
+from src.keypoint_detector.keypoint_detector import KeypointDetector
 
 
 video_streamer = VideoStreamer().start()
+keypoint_detector = KeypointDetector()
 
 
 def btn_file_action():
@@ -51,7 +53,7 @@ cv2.setMouseCallback("Push-up Recognition", mouse_click)
 
 
 while True:
-    video_frame = video_streamer.get_frame()
+    video_frame, _ = video_streamer.get_frame()
     bg = ui.update_ui(video_frame)
 
     cv2.imshow("Push-up Recognition", bg)
