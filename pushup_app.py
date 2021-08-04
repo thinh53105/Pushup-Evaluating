@@ -12,11 +12,11 @@ from src.utils.utils import Button, Label
 root = tkinter.Tk()
 root.withdraw()
 
-# model_up = keras.models.load_model("models/eff_loss_up_8623.h5")
-# model_down = keras.models.load_model("models/eff_acc_down.h5")
+# model_up = keras.models.load_model()
+# model_down = keras.models.load_model("")
 
-model_up = keras.models.load_model("models/eff_loss_0717_224x224_B1_1_up.h5")
-model_down = keras.models.load_model("models/eff_loss_0717_224x224_B1_down.h5")
+# model_up = keras.models.load_model("")
+# model_down = keras.models.load_model("")
 
 
 def preprocessing_image(img):
