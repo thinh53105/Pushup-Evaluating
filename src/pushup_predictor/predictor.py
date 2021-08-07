@@ -2,12 +2,13 @@ import cv2
 import keras
 
 
-class PushupPredictor(object):
+class Predictor(object):
 
-    def __init__(self):
-        self.default_frame = cv2.imread('sample_images/img001.png')
-        self.model_up = keras.models.load_model("src/pushup_predictor/models/eff_loss_up_8623.h5")
-        self.model_down = keras.models.load_model("src/pushup_predictor/models/eff_acc_down.h5")
+    def __init__(self, model_paths, default_frame):
+        self.default_frame = default_frame
+        up_path, down_path = model_paths
+        self.model_up = keras.models.load_model(up_path)
+        self.model_down = keras.models.load_model(down_path)
         self.test_predict()
 
     def test_predict(self):
