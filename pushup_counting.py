@@ -4,7 +4,7 @@ import time
 import matplotlib.pyplot as plt
 
 samples_path = "sample_videos"
-video = "test9.mp4"
+video = "test1.mp4"
 cap = cv2.VideoCapture(samples_path + "/" + video)
 
 detector = pm.PoseDetector()
@@ -91,7 +91,7 @@ while True:
 
 cap.release()
 
-
+print(frame_count)
 plt.figure(figsize=(10, 10))
 plt.plot(angle_list)
 plt.plot(filter_list)

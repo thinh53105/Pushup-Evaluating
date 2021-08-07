@@ -1,4 +1,3 @@
-import cv2
 from src.keypoint_detector.PoseModule import PoseDetector
 
 

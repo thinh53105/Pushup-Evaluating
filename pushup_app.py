@@ -15,8 +15,8 @@ root.withdraw()
 # model_up = keras.models.load_model()
 # model_down = keras.models.load_model("")
 
-# model_up = keras.models.load_model("")
-# model_down = keras.models.load_model("")
+model_up = keras.models.load_model("src/pushup_predictor/models/eff_loss_0717_224x224_B1_1_up.h5")
+model_down = keras.models.load_model("src/pushup_predictor/models/eff_loss_0717_224x224_B1_down.h5")
 
 
 def preprocessing_image(img):

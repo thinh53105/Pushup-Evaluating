@@ -1,8 +1,10 @@
 import cv2
+import time
+from threading import Thread, Lock
 from src.utils.ui_drawer import UIDrawer
 from src.utils.video_streamer import VideoStreamer
 from src.keypoint_detector.keypoint_detector import KeypointDetector
-
+import config
 
 video_streamer = VideoStreamer().start()
 keypoint_detector = KeypointDetector()
@@ -17,7 +19,7 @@ def btn_camera_action():
 
 
 def btn_stop_action():
-    pass
+    video_streamer.stop()
 
 
 def btn_quit_action():
@@ -53,8 +55,8 @@ cv2.setMouseCallback("Push-up Recognition", mouse_click)
 
 
 while True:
-    video_frame, _ = video_streamer.get_frame()
-    bg = ui.update_ui(video_frame)
+    video_frame, tup = video_streamer.get_frame()
+    bg = ui.update_ui(video_frame, tup)
 
     cv2.imshow("Push-up Recognition", bg)
 

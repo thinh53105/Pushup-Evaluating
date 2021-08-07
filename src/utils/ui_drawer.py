@@ -26,8 +26,7 @@ class UIDrawer(object):
         self.lb_right = Label("RIGHT: 0", 100, (345, self.lb_y), (200, 50), (0, 255, 255), 1, 3, None)
         self.lb_wrong = Label("WRONG: 0", 100, (545, self.lb_y), (200, 50), (0, 0, 255), 1, 3, None)
 
-        self.fps = 0
-        self.lb_fps = Label(f"fps: {str(int(self.fps))}", 100, (config.WINDOW_WIDTH - 175, config.WINDOW_HEIGHT - 50), (175, 50),
+        self.lb_fps = Label(f"fps: 0", 100, (config.WINDOW_WIDTH - 175, config.WINDOW_HEIGHT - 50), (175, 50),
                        (255, 255, 255), 1, 3, None)
 
         self.btn_list = [self.btn_file, self.btn_camera, self.btn_stop, self.btn_quit]
@@ -40,7 +39,15 @@ class UIDrawer(object):
     def get_btn_list(self):
         return self.btn_list
 
-    def update_ui(self, video_frame):
+    def update_fps(self, fps):
+        self.lb_fps.set_text(f"fps: {str(int(self.fps))}")
+
+    def update_ui(self, video_frame, l):
+        count, no_right, no_wrong, fps = l
+        self.lb_total.set_text(f"TOTAL: {int(count)}")
+        self.lb_right.set_text(f"RIGHT: {no_right}")
+        self.lb_wrong.set_text(f"RIGHT: {no_wrong}")
+        self.lb_fps.set_text(f"fps: {(fps)}")
         x, y, w, h = config.VIDEO_X, config.VIDEO_Y, config.VIDEO_WIDTH, config.VIDEO_HEIGHT
         video_frame = cv2.resize(video_frame, dsize=(w, h))
         self.bg[self.lb_y:, ] = np.ones((config.WINDOW_HEIGHT - self.lb_y, config.WINDOW_WIDTH, 3), dtype="uint8") * 111
