@@ -26,7 +26,7 @@ def preprocessing_image(img):
     return img
 
 
-test_img = cv2.imread("sample_images/img002.jpg")
+test_img = cv2.imread("sample_images/img001.png")
 predict_test_image = preprocessing_image(test_img)
 
 model_up.predict(predict_test_image)
@@ -158,7 +158,7 @@ def play_video(video_path, x, y, width, height):
         pTime = cTime
 
         bg[y:y+height, x:x+width] = frame
-        cv2.waitKey(1)
+        # cv2.waitKey(1)
     reset_btn(btn_list)
     eval = True
 
